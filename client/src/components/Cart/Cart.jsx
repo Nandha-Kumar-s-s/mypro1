@@ -4,12 +4,38 @@ import {BsCartX} from 'react-icons/bs';
 import CartItem from './CartItem/CartItem';
 import { useContext } from "react";
 import { Context } from "../../utils/context";
-
-
+import { loadStripe } from "@stripe/stripe-js";
+import { makePaymentRequest } from "../../utils/api";
+// use the stripe plugin
+// import the makePaymentRequest ()
 const Cart = ({setShowCart}) => {
 
-    const{cartItems,cartSubTotal} = useContext(Context)
+    const{cartItems,cartSubTotal} = useContext(Context);
 
+    // create a instances using loadstripe
+
+    const stripePromise = loadStripe(
+        process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
+    );
+
+    // create a () for handling the payment
+    const handlePayment = async() =>{
+        try {
+            const stripe = await stripePromise;
+            // api call is a post call endpoint
+            const res = await makePaymentRequest.post("/api/orders",{
+                products: cartItems,
+            });
+
+            // redirect to checkout
+            await stripe.redirectToCheckout({
+               sessionId: res.data.stripeSession.id 
+            })
+            
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
      <div className="cart-panel">
@@ -49,6 +75,8 @@ const Cart = ({setShowCart}) => {
                             <div className="button">
                                 <button
                                     className="checkout"
+                                    // call the () handlepayment
+                                    onClick={handlePayment}
                                 >
                                     Checkout
                                 </button>
