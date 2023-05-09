@@ -8613,10 +8613,10 @@
   "resolved" "https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-2.0.1.tgz"
   "version" "2.0.1"
 
-"stripe@^12.3.0":
-  "integrity" "sha512-B9Q1b0gbKY/Z4fQc1Y82VpHTFLh8A67D6kdcFtgpGfTovVkI7SamE66vmVaWNHgcUjPqI8x6wVvksdRf/ucTDw=="
-  "resolved" "https://registry.npmjs.org/stripe/-/stripe-12.3.0.tgz"
-  "version" "12.3.0"
+"stripe@^12.4.0":
+  "integrity" "sha512-QjZRzKi3wf8TsuJf/fd6/ejfPgwNptDIzFogRWaRzP3oMJnSD73I2YxR0Eje5zfrU8FmddYWZYawoUejqN+o1w=="
+  "resolved" "https://registry.npmjs.org/stripe/-/stripe-12.4.0.tgz"
+  "version" "12.4.0"
   dependencies:
     "@types/node" ">=8.1.0"
     "qs" "^6.11.0"
