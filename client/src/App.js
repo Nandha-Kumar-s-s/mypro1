@@ -9,7 +9,6 @@ import Newsletter  from "./components/Footer/Newsletter/Newsletter";
 import AppContext  from "./utils/context";
 import ScrollToTop from "./ScrollTotop";
 
-
 function App() {
     return (
         <BrowserRouter>
