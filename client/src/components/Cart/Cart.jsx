@@ -6,10 +6,12 @@ import { useContext } from "react";
 import { Context } from "../../utils/context";
 import { loadStripe } from "@stripe/stripe-js";
 import { makePaymentRequest } from "../../utils/api";
+import { useNavigate } from "react-router-dom";
+
 // use the stripe plugin
 // import the makePaymentRequest ()
 const Cart = ({setShowCart}) => {
-
+    const navigate = useNavigate();
     const{cartItems,cartSubTotal} = useContext(Context);
 
     // create a instances using loadstripe
@@ -55,7 +57,7 @@ const Cart = ({setShowCart}) => {
                     <div className="empty-cart">
                         <BsCartX />
                         <span>No products in the cart.</span>
-                        <button className="return-cta" onClick={() => {}}>
+                        <button className="return-cta" onClick={() => {navigate("/");setShowCart(false);}}>
                             RETURN TO SHOP
                         </button>
                     </div>

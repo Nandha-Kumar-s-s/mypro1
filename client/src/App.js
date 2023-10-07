@@ -1,4 +1,4 @@
-import { BrowserRouter,Route,Routes } from "react-router-dom";
+import { BrowserRouter,Route,Routes ,Navigate} from "react-router-dom";
 
 import Header  from "./components/Header/Header";
 import Footer  from "./components/Footer/Footer";
@@ -8,6 +8,7 @@ import SingleProduct  from "./components/SingleProduct/SingleProduct";
 import Newsletter  from "./components/Footer/Newsletter/Newsletter";
 import AppContext  from "./utils/context";
 import ScrollToTop from "./ScrollTotop";
+
 
 function App() {
     return (

@@ -8,12 +8,15 @@ import Search from "./Search/Search";
 import Cart from "../Cart/Cart";
 import { Context } from "../../utils/context";
 import "./Header.scss";
+import { useAuth0 } from "@auth0/auth0-react";
+
 const Header = () => {
     const [scrolled,setScrolled] = useState(false);
     const [showCart,setShowCart] = useState(false);
     const [showSearch,setShowSearch] = useState(false);
     const navigate = useNavigate();
     const {cartCount} = useContext(Context);
+    const { loginWithRedirect,logout,user, isAuthenticated, isLoading } = useAuth0();
 
 
     const handleScroll = () =>{
@@ -42,8 +45,25 @@ const Header = () => {
             <div className="center" onClick={()=>navigate("/")}>BALAJI TRADERS</div>
             <div className="right">
                 <TbSearch onClick={()=> setShowSearch(true)}/>
-                <AiOutlineHeart/>
-                <IoMdLogIn/>
+
+
+            {isAuthenticated && (
+      <div className="user">
+       
+       <img className = "img" src={user.picture} alt={user.name} />
+       
+      </div>
+        )}  
+            {isAuthenticated ? (
+                   
+                    <button  className="logout" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>log out</button>
+                   
+                ):(
+                    <button className="login" onClick={() => loginWithRedirect()}>Log In</button>
+
+                )}
+                
+
                 <span className="cart-icon" onClick={() => setShowCart(true)}>
                     <CgShoppingCart/>
                    {!!cartCount && <span>{cartCount}</span>}

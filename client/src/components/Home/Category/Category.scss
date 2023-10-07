@@ -8,10 +8,13 @@
     }
     .categories{
         display: flex;
+       
         flex-flow: wrap;
         gap: 10px;
         .category{
             background-color: black;
+            border-left: #760bd3 solid 7px;
+
             width: calc(50% - 5px);
             cursor: pointer;
             overflow: hidden;

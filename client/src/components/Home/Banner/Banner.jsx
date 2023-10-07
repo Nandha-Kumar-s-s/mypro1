@@ -1,6 +1,6 @@
 
 import "./Banner.scss";
-import BannerImg from "../../../assets/banner-img.png"
+import BannerImg from "../../../assets/water.png"
 const Banner = () => {
     return <div className="hero-banner">
         <div className="content">
@@ -9,7 +9,7 @@ const Banner = () => {
                     SALES
                 </h1>
                 <p>
-                    shop for the lastest product which has the advanced features
+                HAVELLS Digiplus 6 L RO + UV Water Purifier 8 Stages, Double UV Purification 
                 </p>
                 <div className="ctas">
                     <div className="banner-cta">Read More</div>
